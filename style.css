@@ -1,0 +1,180 @@
+/*body {
+    background-color: black;  
+}*/
+/*background-color é o plano de fundo*/
+
+* {
+    margin: 0; 
+    padding: 0; /*tira de todos os elementos a margem e preenchimento que o navegador colocar*/
+    box-sizing: border-box; /*a medida do tamanho da caixa, através da borda*/
+}
+
+:root { /*pseudo-classe:root é usada para selecionar a raiz de um documento HTML, geralmente para definir variáveis CSS personalizadas*/
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5); /*cor do traço da borda*/
+    --surface-color: rgba(255, 255, 255, 0.05); /*cor da superfície*/
+    --surface-color-hover: rgba(0, 0, 0, 0.02); /*quando passar o mouse por cima dos itens*/
+    --highlight-color: rgba(255, 255, 255, 0.2); /*quando passar o mouse por cima dos ícones*/
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+     --surface-color-hover: rgba(0, 0, 0, 0.02); 
+     --highlight-color: rgba(0, 0, 0, 0.1);
+     --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+    /* background-image: url(./assets/bg-mobile.jpg);  /*imagem salva dentro da pasta assets*/
+    background-repeat: no-repeat;  /*para não repetir a imagem de plano de fundo*/
+    background-position: top center; /*para reposicionar a imagem, top para começar no centro superior*/
+    background-size: cover; /*para cobrir todo o espaço visível*/
+    /*background: color image repeat position/size*/
+
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+    font-family: 'Inter', sans-serif; /*vai aplicar a todos os elementos do body*/
+    color: var(--text-color); /*alterado de white para implementar o modelo light*/
+}
+
+
+#container {
+     /*border: 1px solid red; =borda, px é a largura da borda (foi utilizada aqui somente para facilitar a visualização das outras propriedades*/
+     /*height: 712px; (altura, não precisa colocar, deve ser fluida, vai variar de acordo com o conteúdo da página)*/
+     /*margin: auto; =margem automática alinha ao meio*/
+     /*padding-top: 56px; =preencimento superior*/
+     width: 360px; /*largura*/
+     margin: 56px auto 0px; /*56 na parte superior, automático nas laterais e 0 inferior*/
+     padding: 0 24px; /*preenchimento encima e embaixo é zero e nas laterais 24*/
+}
+
+
+/*profile*/
+#profile {
+    text-align: center; /*todos os elementos inline vão aceitar que o pai dele defina se ele vai ficar centralizado ou no canto right ou left*/
+    padding: 24px; /*preenchimento interno da caixa*/
+}
+
+#profile img {
+    /*display: block; (block ocupa 100% da largura disponível e para ele é sempre iniciado em uma nova linha e inline em linha, ocupa somente a largura de seu conteúdo)*/
+    width: 112px; /*no css geralmente não precisa colocar altura, pois a altura segue o conteúdo da página*/
+}
+
+#profile p {
+    font-weight: 500;
+    /*font-size: 16px; (por padrão os navegadores já tem font-size de 16px)*/
+    line-height: 24px; /*altura da linha*/
+    margin-top: 8px; /*margem superior*/
+}
+
+
+/*switch*/
+#switch {
+    position: relative;
+    width: 64px;
+
+    margin: 4px auto; /*para centralizar*/
+    /*alinhamento display block*/
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute; /*posicionamento absoluto*/
+    left: 0; /*esquerda*/
+    z-index: 1; /*sobe "um andar"*/
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.light #switch button {
+    right: 0; /*direita*/
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+
+/*links*/
+ul {
+    list-style: none; /*estilo da lista =nenhum*/
+    
+    display: flex; /*permite que você controle a disposição, o alinhamento e a distribuição dos itens filhos de uma maneira mais eficiente e previsível*/
+    flex-direction: column; /*coloca em coluna*/
+    gap: 16px; /*define o espaço entre os itens*/
+    padding: 24px 0; /*preenchimento superior e inferior de 24pc*/
+}
+
+ul li a {
+    display: flex;
+    align-items: center; /*controla o alinhamento vertical dos itens dentro de um container*/
+    justify-content: center; /*controla a forma como os itens são alinhados ao longo do eixo principal de um container flex ou grid =justificar conteúdo centro*/
+    
+    padding: 16px 24px;
+
+    background: var(--surface-color); /*fundo dos itens*/
+    border: 1px solid var(--stroke-color); /*borda dos itens*/
+    border-radius: 8px; /*arrendondamento de borda*/
+    
+    backdrop-filter: blur(4px); /*adiciona um leve embaçado ao preenchimento*/
+    -webkit-backdrop-filter: blur(4px); /*precisa colocar o webkit na frente para algumas versões como Safari*/
+   
+    text-decoration: none; /*fica sem nenhuma linha no texto (line-through linha ao meio, overline linha fica encima e underline linha fica como sublinhado)*/
+    font-weight: 500;
+    transition: background 0.2s; /*transição entre os links quando passa o mouse*/
+}
+
+/*pseudo-selector*/
+ul li a:hover {
+    background: var(--surface-color-hover); /*fundo dos itens quando passa o mouse*/
+    border: 1.5px solid var(--text-color); /*borda dos itens quando passa o mouse*/ 
+}
+
+/*social-links*/
+#social-links {
+    display: flex;
+    justify-content: center; /*para alinhar os ícones ao meio*/
+    /*gap: 16px; para o espaçamento entre os ícones*/
+    padding: 24px 0;
+    font-size: 24px; /*para o tamanho dos ícones*/
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover { 
+    background: var(--highlight-color); /*o que acontece quando passa o mouse por cima do ícone*/
+} 
+
+footer { /*footer = rodapé*/
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+    /*alinhamento de texto*/
+}

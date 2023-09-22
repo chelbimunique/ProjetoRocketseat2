@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br" class=""> <!--linguagem, alterada para pt-br-->
+<head> <!--head ajusta configurações que não são visíveis para quem acessa a página-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"> <!--buscar pela fonte em fonts.google.com, copiar o link da review-->
+    
+    <meta charset="UTF-8"> <!--define o conjunto de caracteres, aceita acentos, cedilha-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!--viewport é tudo que é visível, width=device-width é a largura do dispositivo, 
+        initial-scale começa em 1.0 e permite que você dê zoom, 
+        essas configs adaptam a visualização quando você abre um site no celular-->
+    <title>Projeto RocketSeat 2</title>
+    <link rel="stylesheet" href="./style.css">
+    <!--tag link é um relacionamento com a tag de arquivo tipo stylesheet-->
+</head>
+
+<body> <!--é a parte visível-->
+    <div id="container"> <!--caixa genérica que não tem estilos, id é o identificador-->
+        <div id="profile"> <!--para alterar o perfil-->
+            <img 
+             src="./assets/avatar.png" 
+             alt="Foto de Mayk Brito usando óculos e camisa preta, com barba e fundo amarelo"
+             />
+             <!--src em que lugar está a imagem (pode ser em um site), searce=pesquisa e alt ponto alternativo, palavras que descrevam a imagem-->
+
+             <p>@maykbrito</p>
+        </div>
+
+        <div id="switch" onclick="toggleMode()"> <!-toggle=alternar-->
+            <button></button>
+            <span></span>
+        </div>
+
+        <ul> <!--Unordered List representa uma lista não ordenada-->
+            <li> <!--Lista dos Itens é usada para representar um item que faz parte de uma lista (deve estar contido em um elemento pai: lista ordenada <ol> ou lista desordenada <ul>-->
+                <a href="#">Inscrever-se no NLW</a> <!--a é o link que será colocado, essa # significa que dá para clicar, mas o link não levará a lugar nenhum--> 
+            </li>
+
+            <li>
+                <a href="#">Baixar meu e-book</a>
+            </li>
+
+            <li>
+                <a href="https://github.com/maykbrito" target="_blank" 
+                >Ver meu portfólio</a>
+            </li>
+
+            <li>
+                <a href="https://rocketseat.com.br/explorer" target="_blank" 
+                >Conheça o explorer</a> <!--target _blank para clicar no link e abrir em outra página-->
+            </li>
+        </ul>
+        <div id="social-links"> <!--ícones de mídia social-->
+         <a href="https://github.com/maykbrito" target="_blank">
+            <ion-icon name="logo-github"></ion-icon>
+         </a>
+
+         <a href="https://instagram.com/maykbrito" target="_blank">
+            <ion-icon name="logo-instagram"></ion-icon>
+         </a>
+
+         <a href="https://youtube.com/maykbrito" target="_blank">
+            <ion-icon name="logo-youtube"></ion-icon>
+         </a>
+
+         <a href="https://linkedin.com/in/maykbrito" target="_blank">
+            <ion-icon name="logo-linkedin"></ion-icon>
+         </a>
+            </div>
+
+         <footer> <!--footer é usado para representar o rodapé de um documento HTML, geralmente no final de uma página da web e fornece informações sobre o autor, direitos autorais, links para informações de contato ou qualquer outra informação relevante-->
+            Feito com ♥ pela <a href="https://rocketseat.com.br/">Rocketseat</a>
+         </footer>    
+        </div>
+
+        <script 
+        type="module" 
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+        </script>
+        <script 
+        nomodule 
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+        </script>
+
+        <script src="./script.js"> </script>
+    </body>
+</html>
