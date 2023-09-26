@@ -94,15 +94,22 @@ body * {
     border-radius: 50%;
 
     position: absolute; /*posicionamento absoluto*/
+    top: 50%;
     left: 0; /*esquerda*/
     z-index: 1; /*sobe "um andar"*/
     transform: translateY(-50%);
-    top: 50%;
+  
+    animation: slide-back 0.2s;
 }
 
 .light #switch button {
-    right: 0; /*direita*/
-    left: initial;
+    /*right: 0; direita
+    left: initial; esquerda*/
+    animation: slide-in 0.4s forwards; /*forwards mantem as propriedades definidas no slide in*/
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color); /*faz um efeito sombreado em volta do círculo do botão*/
 }
 
 #switch span {
@@ -187,6 +194,25 @@ footer { /*footer = rodapé*/
     }
 
     .light {
-        --bg-url: url (./assets/bg-desktop-light.jpg);
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+/* animation */
+@keyframes slide-in { /*para quando trocar do escuro para o claro ficar mais gradual*/
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }
