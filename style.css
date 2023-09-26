@@ -50,7 +50,8 @@ body * {
      /*height: 712px; (altura, não precisa colocar, deve ser fluida, vai variar de acordo com o conteúdo da página)*/
      /*margin: auto; =margem automática alinha ao meio*/
      /*padding-top: 56px; =preencimento superior*/
-     width: 360px; /*largura*/
+     width: 100%; /*largura*/
+     max-width: 588px; /*largura máxima*/
      margin: 56px auto 0px; /*56 na parte superior, automático nas laterais e 0 inferior*/
      padding: 0 24px; /*preenchimento encima e embaixo é zero e nas laterais 24*/
 }
